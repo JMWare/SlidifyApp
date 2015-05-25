@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The 'Seatbelt' App</title>
+  <meta charset="utf-8">
+  <meta name="description" content="The 'Seatbelt' App">
+  <meta name="author" content="John Ware">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>The 'Seatbelt' App</h1>
+    <h2>Using 'ggplot2' Graphics to Visualise the Effects of Legislation Requiring Compulsory Use of Seatbelts in the United Kingdom</h2>
+    <p>John Ware<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <article data-timings="">
+    <H2 ALIGN=center>The 'Seatbelt' App</H2>
+
+<p><BR></p>
+
+<P><H3> Road transport is at the heart of our industrialised civilisation, but it exacts a high 
+a high price in terms of deaths and injuries.</H3></P>
+
+<p><BR></p>
+
+<P><H3> In this application we use a dataset consisting of monthly counts of fatalities and
+serious injuries to the occupants of passenger cars in the United Kingdom to explore the
+effects of the introduction of compulsory wearing of seatbelts on 31 January 1983;
+and the relationship between casualty rates and seasonal effects, average mileage and petrol prices.</H3></P>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <article data-timings="">
+    <H2 ALIGN=center>The App uses a graphical presentation</H2>
+
+<p><BR></p>
+
+<P><H4>The App uses 'R' code in a 'Slidify' application to generate a 'ggplot2'
+graphical presentation; a sample of the code and its output is shown below</H4></P>
+
+<p><BR></p>
+
+<pre><code class="r">library(ggplot2)
+library(datasets)
+Data &lt;- data.frame(Seatbelts[ , c(2:6)], law = as.factor(Seatbelts[ ,8]))
+TITLE &lt;- &quot;DRIVER CASUALTIES BY ANNUAL KILOMETRES DRIVEN&quot;
+XLAB &lt;- &quot;KILOMETRES&quot;
+YLAB &lt;- &quot;DRIVER CASUALTIES PER MONTH&quot;
+qplot(kms, drivers, data=Data, geom=c(&quot;point&quot;, &quot;smooth&quot;),  method=&quot;loess&quot;,
+        col=law, main=TITLE, xlab=XLAB, ylab=YLAB, asp=0.8)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <article data-timings="">
+    <H3 ALIGN=center>Example graph</H3>
+
+<H4>This example graph shows the relationship between casualty rate and 
+mileage, the red and blue symbols represent casualty rates pre and post seatbelt 
+legislation introduction; we can infer that the legislation was effective in 
+reducing the casualty rate.</H4>
+
+<p><img src="assets/fig/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <article data-timings="">
+    <p><H3 ALIGN=center>Acknowledgments :</H3><BR></p>
+
+<p>The data used by the App is derived from a study by A. C. Harvey and J. Durbin :
+&#39;The effects of seat belt legislation on British road casualties&#39; (1986).</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title=''>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title=''>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title=''>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title=''>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
